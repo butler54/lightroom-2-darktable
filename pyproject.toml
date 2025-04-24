@@ -36,6 +36,9 @@ Documentation = "https://github.com/butler54/lightroom-2-darktable#readme"
 Issues = "https://github.com/butler54/lightroom-2-darktable/issues"
 Source = "https://github.com/butler54/lightroom-2-darktable"
 
+[project.scripts]
+l2d = "lightroom_2_darktable.cli:cli"
+
 [project.optional-dependencies]
 dev = [
     "pre-commit>=3.0",
@@ -62,6 +65,11 @@ omit = [
 lightroom_2_darktable = ["src/lightroom_2_darktable", "*/lightroom-2-darktable/src/lightroom_2_darktable"]
 tests = ["tests", "*/lightroom-2-darktable/tests"]
 
+[tool.hatch.envs.cli]
+dependencies = [
+  "typer",           # for testing
+  # add any other dependencies needed for your CLI
+]
 [tool.coverage.report]
 exclude_lines = [
   "no cov",
