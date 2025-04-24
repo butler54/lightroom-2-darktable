@@ -74,3 +74,15 @@ preview = true
 
 [tool.ruff.format]
 preview = true
+
+[tool.mypy]
+follow_imports = "normal"
+pretty = true
+show_column_numbers = true
+show_error_context = true
+warn_no_return = false
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_unreachable = true
