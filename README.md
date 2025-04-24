@@ -1,21 +1,54 @@
 # lightroom-2-darktable
 
-[![PyPI - Version](https://img.shields.io/pypi/v/lightroom-2-darktable.svg)](https://pypi.org/project/lightroom-2-darktable)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/lightroom-2-darktable.svg)](https://pypi.org/project/lightroom-2-darktable)
+A personal project to help transition from Adobe Lightroom to darktable. Build for the particular issues I have in mind.
 
------
+**THIS IS CURRENTLY A WORK IN PROGRESS**
 
-## Table of Contents
+## Why?
 
-- [Installation](#installation)
-- [License](#license)
+I've used lightroom for many years. It's a great tool. However, I'm not getting as much value as I like from it for a number of reasons:
 
-## Installation
+1. Lightroom classic can't sync to my iPad anymore
+2. I'm using it sporadically
+3. I barely use photoshop.
 
-```console
-pip install lightroom-2-darktable
-```
+99% of my edits are in lightroom or in external effects (DXO labs film effects). I don't get value from photoshop today. 
+
+This has led to a desire to migrate to [darktable](https://www.darktable.org/) which is FOSS. However, I need to deal with the legacy of multiple lightroom catalogs and a bit of a mess.
+
+## Questions that need to be answered:
+
+### Single catalog questions
+1. Has lightroom generated xmp sidecars for all the images xmp sidecars exist for? and list the ones it has not done so?
+2. Which images are in lightroom but not in a collection?
+3. Which images are in mulitiple collections?
+4. Which images are missing?
+5. Which images are in lightroom's directory tree but NOT in the lightroom database?
+6. Have duplicate images being imported duplicate as measured by image hash.
+
+### Multiple catalog questions
+1. Are any collection names, excluding a reference list, duplicated
+2. Are any images duplicated across catalogs?
+3. Across multple catalogs are images duplicated?
+
+### Import actions:
+1. For a lightroom collection create a folder tree, including `xmp` sidecars for that collection using copy.
+2. For a set of lightroom collections create a folder tree for each as above.
+3. For a set of lightroom collections do the same, however, moving files opportunistically and therefore guaranteeing no duplicates and skipping over files
+4. For any of the above, do so, however, exclude images that have been flagged negatively
+
+
+## Assumptions
+1. Multiple lightroom catalogs
+2. File trees have been moved; potentially multiple times.
+3. No Windows considered. Assume that this is been run on a mac or linux.
+4. Don't rely on file system dates. 
+
+## Design choices:
+
+1. Python: Why? I'm most comfortable with it.
+2. Make the collections ready for Darktable but import into darktable using darktable native interfaces: Keep the moving parts down
 
 ## License
 
-`lightroom-2-darktable` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+`lightroom-2-darktable` is distributed under the terms of the [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) license.
