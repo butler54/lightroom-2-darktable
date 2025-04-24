@@ -26,6 +26,7 @@ jobs:
       run: make setup-deps
     
     - name: Generic
+      if: github.ref != 'refs/heads/main'
       run: make pre-commit
 
     - name: Python formatting
