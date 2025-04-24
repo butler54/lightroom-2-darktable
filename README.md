@@ -39,10 +39,17 @@ This has led to a desire to migrate to [darktable](https://www.darktable.org/) w
 
 
 ## Assumptions
+
+### Design assumptions based on my environment
 1. Multiple lightroom catalogs
 2. File trees have been moved; potentially multiple times.
 3. No Windows considered. Assume that this is been run on a mac or linux.
 4. Don't rely on file system dates. 
+
+### Version assumptions
+
+1. Lightroom classic only. Tested against catalog v 13 versions.
+
 
 ## Design choices:
 

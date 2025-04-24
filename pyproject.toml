@@ -24,13 +24,22 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "typer",
+  "rich",
+  "ray[all]",
+  "modin",
+]
 
 [project.urls]
 Documentation = "https://github.com/butler54/lightroom-2-darktable#readme"
 Issues = "https://github.com/butler54/lightroom-2-darktable/issues"
 Source = "https://github.com/butler54/lightroom-2-darktable"
 
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=3.0",
+]
 [tool.hatch.version]
 path = "src/lightroom_2_darktable/__about__.py"
 
@@ -59,3 +68,9 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.ruff.lint]
+preview = true
+
+[tool.ruff.format]
+preview = true
