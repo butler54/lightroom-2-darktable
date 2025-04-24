@@ -1,7 +1,14 @@
 
 
-setup-local:
+setup-deps:
+	python -m pip install hatch pre-commit
 	pre-commit install
 
 fmt: 
 	hatch fmt
+
+test:
+	hatch test
+
+pre-commit:
+	pre-commit run --all-files
