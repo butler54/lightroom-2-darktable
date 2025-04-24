@@ -12,3 +12,6 @@ test:
 
 pre-commit:
 	pre-commit run --all-files
+
+types:
+	hatch run types:check

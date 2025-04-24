@@ -28,9 +28,10 @@ jobs:
     - name: Generic
       run: make pre-commit
 
-    - name: Python specific
+    - name: Python formatting
       run: make fmt
-
+    - name: Python static types
+      run: make types
   test:
     runs-on: ubuntu-latest
     strategy:
