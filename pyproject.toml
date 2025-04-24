@@ -8,10 +8,10 @@ dynamic = ["version"]
 description = ''
 readme = "README.md"
 requires-python = ">=3.8"
-license = "MIT"
+license = "Apache-2.0"
 keywords = []
 authors = [
-  { name = "Chris Butler", email = "chris.butler@redhat.com" },
+  { name = "Chris Butler", email = "chris@thebutlers.me" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -27,9 +27,9 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/Chris Butler/lightroom-2-darktable#readme"
-Issues = "https://github.com/Chris Butler/lightroom-2-darktable/issues"
-Source = "https://github.com/Chris Butler/lightroom-2-darktable"
+Documentation = "https://github.com/butler54/lightroom-2-darktable#readme"
+Issues = "https://github.com/butler54/lightroom-2-darktable/issues"
+Source = "https://github.com/butler54/lightroom-2-darktable"
 
 [tool.hatch.version]
 path = "src/lightroom_2_darktable/__about__.py"
