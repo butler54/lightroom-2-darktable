@@ -31,8 +31,7 @@ This has led to a desire to migrate to [darktable](https://www.darktable.org/) w
 
 1. Are any collection names, excluding a reference list, duplicated
 1. Are any images duplicated across catalogs?
-1. Across multple catalogs are images duplicated?
-
+1. Across multiple catalogs are images duplicated?
 ### Import actions:
 
 1. For a lightroom collection create a folder tree, including `xmp` sidecars for that collection using copy.
