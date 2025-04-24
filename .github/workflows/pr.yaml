@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2025-present Chris Butler <chris@thebutlers.me>
+#
+# SPDX-License-Identifier: Apache-2.0
+name: l2d PR pipeline
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  fmt:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.12']
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Setup
+      run: make setup-deps
+    
+    - name: Generic
+      run: make pre-commit
+
+    - name: Python specific
+      run: make fmt
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.12']
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: test
+      run: make test
