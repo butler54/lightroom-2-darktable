@@ -24,7 +24,7 @@ def validate_lrcat(lrcat: pathlib.Path) -> bool:
         console.err.print(f"catalog previews directoryls : {previews} does not exist")
         return False
     
-    if not data.exists() and data.is_dir()):
+    if not data.exists() and data.is_dir():
         console.err.print(f"lrcat file: {data} does not exist")
         return False
 

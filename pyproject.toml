@@ -23,10 +23,13 @@ classifiers = [
 dependencies = [
   "typer",
   "rich",
-  "ray >= 2.44",
-  "modin",
+  "ray[all] >= 2.44",
   "setuptools",
-
+  "pyyaml >= 6.0.2",
+  "tqdm",
+  "modin",
+  "pandas",
+  "python-xmp-tookit",
 ]
 
 
