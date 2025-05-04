@@ -16,10 +16,6 @@ authors = [
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
@@ -27,9 +23,12 @@ classifiers = [
 dependencies = [
   "typer",
   "rich",
-  "ray[all]",
+  "ray >= 2.44",
   "modin",
+  "setuptools",
+
 ]
+
 
 [project.urls]
 Documentation = "https://github.com/butler54/lightroom-2-darktable#readme"
@@ -61,6 +60,9 @@ omit = [
   "src/lightroom_2_darktable/__about__.py",
 ]
 
+[tool.hatch.envs.default]
+python = "3.12"
+
 [tool.coverage.paths]
 lightroom_2_darktable = ["src/lightroom_2_darktable", "*/lightroom-2-darktable/src/lightroom_2_darktable"]
 tests = ["tests", "*/lightroom-2-darktable/tests"]
@@ -76,6 +78,9 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[[tool.hatch.envs.hatch-test.matrix]]
+python = ["3.12"]
 
 [tool.ruff.lint]
 preview = true
