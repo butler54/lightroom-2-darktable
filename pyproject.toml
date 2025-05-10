@@ -16,10 +16,6 @@ authors = [
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
@@ -27,14 +23,23 @@ classifiers = [
 dependencies = [
   "typer",
   "rich",
-  "ray[all]",
+  "ray[all] >= 2.44",
+  "setuptools",
+  "pyyaml >= 6.0.2",
+  "tqdm",
   "modin",
+  "pandas",
+  "python-xmp-tookit",
 ]
+
 
 [project.urls]
 Documentation = "https://github.com/butler54/lightroom-2-darktable#readme"
 Issues = "https://github.com/butler54/lightroom-2-darktable/issues"
 Source = "https://github.com/butler54/lightroom-2-darktable"
+
+[project.scripts]
+l2d = "lightroom_2_darktable.cli:cli"
 
 [project.optional-dependencies]
 dev = [
@@ -58,16 +63,27 @@ omit = [
   "src/lightroom_2_darktable/__about__.py",
 ]
 
+[tool.hatch.envs.default]
+python = "3.12"
+
 [tool.coverage.paths]
 lightroom_2_darktable = ["src/lightroom_2_darktable", "*/lightroom-2-darktable/src/lightroom_2_darktable"]
 tests = ["tests", "*/lightroom-2-darktable/tests"]
 
+[tool.hatch.envs.cli]
+dependencies = [
+  "typer",           # for testing
+  # add any other dependencies needed for your CLI
+]
 [tool.coverage.report]
 exclude_lines = [
   "no cov",
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[[tool.hatch.envs.hatch-test.matrix]]
+python = ["3.12"]
 
 [tool.ruff.lint]
 preview = true
