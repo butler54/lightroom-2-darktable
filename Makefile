@@ -15,3 +15,6 @@ pre-commit:
 
 types:
 	hatch run types:check
+
+cli:
+	hatch run cli:l2d

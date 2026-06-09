@@ -48,4 +48,4 @@ site
 
 tmp_bin_test
 .mypy_cache
-.ruff_cache
+.ruff_cache.claude/
